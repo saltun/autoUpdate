@@ -1,4 +1,13 @@
 <?php
+/**
+* @author Savaş Can ALTUn <savascanaltun@gmail.com>
+* @link  http://savascanaltun.com.tr
+* @link  http://github.com/saltun
+* @since  31.08.2014
+* @example example.php
+* @version 1.0
+*/
+
 class autoUpdate{
 	public $sourceurl;
 	public $file;
@@ -14,7 +23,7 @@ class autoUpdate{
 		    curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
 		    curl_setopt($curl, CURLOPT_REFERER, 'http://www.savascanaltun.com.tr');
 		    curl_setopt($curl, CURLOPT_VERBOSE, true);
-			curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+		    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
 		    curl_setopt($curl, CURLOPT_HEADER, false);
 		    $data = curl_exec($curl);
 		    curl_close($curl);
@@ -55,7 +64,7 @@ class autoUpdate{
 		$myDate=$this->updateControl($myfileSource);
 		$myDate=date('Y-m-d',strtotime($myDate));
 		$updateDate=$this->updateControl($gitsource);		
-        $updateDate=date('Y-m-d',strtotime($updateDate));
+                $updateDate=date('Y-m-d',strtotime($updateDate));
 
       
   		 if (!$this->dateControl($myDate,$updateDate)) {
